@@ -1,0 +1,33 @@
+import random
+import string
+
+def generate_password(length=12):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for _ in range(length))
+    return password
+
+def print_welcome():
+    welcome_line = "Welcome to the HV Password Generator!"
+    crazy_line = "Get ready for mind-blowing passwords that defy imagination!"
+
+    print("*" * 50)
+    print("*" + " " * 48 + "*")
+    print(f"*{' ' * 20}{welcome_line}{' ' * 20}*")
+    print(f"*{' ' * 19}{crazy_line}{' ' * 19}*")
+    print("*" + " " * 48 + "*")
+    print("*" * 50)
+
+def main():
+    print_welcome()
+
+    length = int(input("Enter the desired length of the password: "))
+    num_passwords = int(input("Enter the number of passwords to generate: "))
+
+    for _ in range(num_passwords):
+        password = generate_password(length)
+        print("Generated Password:", password)
+
+    print("Password generation completed.")
+
+if __name__ == "__main__":
+    main()
